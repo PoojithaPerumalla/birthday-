@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A special birthday surprise journey crafted with love for Khadersha Annaya — memories, letters, and celebration." />
+  <title>Happy Birthday, Khadersha Annaya 🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       LOADING SCREEN
+  ═══════════════════════════════════════════ -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-heart">❤️</div>
+      <div class="loading-text">Preparing something special…</div>
+      <div class="loading-bar-wrap"><div class="loading-bar" id="loading-bar"></div></div>
+      <div class="loading-subtext">A gift made with love</div>
+    </div>
+    <canvas id="loading-stars"></canvas>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       PROGRESS INDICATOR
+  ═══════════════════════════════════════════ -->
+  <div class="progress-indicator" id="progress-indicator" aria-label="Journey progress">
+    <div class="progress-dot active" data-page="0" title="Welcome" aria-label="Page 1: Welcome"></div>
+    <div class="progress-dot" data-page="1" title="Memories" aria-label="Page 2: Memories"></div>
+    <div class="progress-dot" data-page="2" title="Letter" aria-label="Page 3: Letter"></div>
+    <div class="progress-dot" data-page="3" title="Timeline" aria-label="Page 4: Timeline"></div>
+    <div class="progress-dot" data-page="4" title="Celebration" aria-label="Page 5: Celebration"></div>
+  </div>
+
+  <!-- MUSIC TOGGLE -->
+  <button id="music-toggle" class="music-toggle" aria-label="Toggle background music" title="Toggle music">
+    <span class="music-icon">🎵</span>
+    <span class="music-label">Music</span>
+  </button>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN WRAPPER
+  ═══════════════════════════════════════════ -->
+  <main id="main-wrapper" class="main-wrapper hidden">
+
+    <!-- ──────────────────────────────
+         PAGE 1: WELCOME
+    ────────────────────────────── -->
+    <section id="page-1" class="page page-welcome active" aria-label="Welcome page">
+      <canvas id="stars-canvas" aria-hidden="true"></canvas>
+      <div class="particles-container" id="particles" aria-hidden="true"></div>
+
+      <div class="welcome-content">
+        <div class="welcome-badge">✦ A Special Surprise ✦</div>
+        <h1 class="welcome-title">
+          <span class="line1">A Special Surprise For</span>
+          <span class="line2 golden-glow">Someone Special</span>
+        </h1>
+        <div class="welcome-name-wrap">
+          <h2 class="welcome-name golden-shimmer" id="main-name">Happy Birthday,</h2>
+          <h2 class="welcome-name-big golden-shimmer">Khadersha Annaya</h2>
+        </div>
+        <p class="welcome-subtitle">
+          A little journey through memories, love<br />and unforgettable moments.
+        </p>
+        <div class="countdown-box" id="countdown-box" aria-label="Birthday countdown">
+          <div class="countdown-item"><span class="countdown-num" id="cd-days">--</span><span class="countdown-label">Days</span></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-item"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-label">Hours</span></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-item"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-label">Minutes</span></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-item"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-label">Seconds</span></div>
+        </div>
+        <button id="btn-begin" class="btn btn-primary" aria-label="Begin the birthday journey">
+          Begin Your Journey <span class="btn-heart">❤️</span>
+        </button>
+      </div>
+
+      <div class="floating-elements" aria-hidden="true">
+        <span class="float-el star">✦</span>
+        <span class="float-el star">✧</span>
+        <span class="float-el heart">❤</span>
+        <span class="float-el star">✦</span>
+        <span class="float-el heart">♡</span>
+        <span class="float-el star">✧</span>
+        <span class="float-el heart">❤</span>
+        <span class="float-el star">✦</span>
+      </div>
+    </section>
+
+    <!-- ──────────────────────────────
+         PAGE 2: MEMORIES GALLERY
+    ────────────────────────────── -->
+    <section id="page-2" class="page page-memories" aria-label="Memories gallery">
+      <canvas id="memories-canvas" aria-hidden="true"></canvas>
+      <div class="page-header">
+        <div class="section-badge">Chapter I</div>
+        <h2 class="page-title golden-glow">Our Memories</h2>
+        <p class="page-subtitle">Every photo tells a story. Every moment holds a universe.</p>
+      </div>
+
+      <div class="gallery-wrap" role="region" aria-label="Memory photo gallery">
+        <div class="gallery-track" id="gallery-track">
+          <!-- Memory 1 -->
+          <div class="polaroid" data-index="0" role="img" aria-label="Memory 1">
+            <div class="polaroid-inner">
+              <div class="polaroid-img-wrap">
+                <img src="images/brother.jpeg" alt="A cherished memory" loading="lazy" />
+              </div>
+              <div class="polaroid-caption">
+                <p class="mem-quote" id="quote-0">
+                  "Some moments are too beautiful for words — this is one of them. 🌅"
+                </p>
+                <span class="mem-tag editable-note">Wish You Many More Happy Returns of the day My Little brother</span>
+              </div>
+            </div>
+          </div>
+          <!-- Memory 2 -->
+          <div class="polaroid" data-index="1" role="img" aria-label="Memory 2">
+            <div class="polaroid-inner">
+              <div class="polaroid-img-wrap">
+                 <img src="images/memory2.jpeg" alt="A beatiful memory" loading="lazy" />
+              </div>
+              <div class="polaroid-caption">
+                <p class="mem-quote" id="quote-1">
+                  "Laughing with you is my favourite thing in the world. 😄"
+                </p>
+                <span class="mem-tag editable-note">“We celebrated a cake-cutting ceremony at our college and enjoyed that day with our sisters and your friend.”</span>
+              </div>
+            </div>
+          </div>
+          <!-- Memory 3 -->
+          <div class="polaroid" data-index="2" role="img" aria-label="Memory 3">
+            <div class="polaroid-inner">
+              <div class="polaroid-img-wrap">
+                <img src="images/memory3.png" alt="A cherished memory" loading="lazy" />
+              </div>
+              <div class="polaroid-caption">
+                <p class="mem-quote" id="quote-2">
+                  “The day we became a family ❤️ is the greatest gift of my life. 🎊"
+                </p>
+                <span class="mem-tag editable-note">“The day you left me at college was December 27th. Even though you went away, you filled my life with countless beautiful memories. Thank you so much for everything. ❤️”</span>
+              </div>
+            </div>
+          </div>
+          <!-- Memory 4 -->
+          <div class="polaroid" data-index="3" role="img" aria-label="Memory 4">
+            <div class="polaroid-inner">
+              <div class="polaroid-img-wrap">
+                <img src="images/memory4.png" alt="A cherished memory" loading="lazy" />
+              </div>
+              <div class="polaroid-caption">
+                <p class="mem-quote" id="quote-3">
+                  "Every adventure feels better when we face it together. 🌍"
+                </p>
+                <span class="mem-tag editable-note">“Thank you so much, Annaya, for coming into my life. You are one of the greatest blessings in my life. ❤️”</span>
+              </div>
+            </div>
+          </div>
+          <!-- Memory 5 -->
+          <div class="polaroid" data-index="4" role="img" aria-label="Memory 5">
+            <div class="polaroid-inner">
+              <div class="polaroid-img-wrap">
+                <img src="images/memory5.jpeg" alt="A cherished memory" loading="lazy" />
+              </div>
+              <div class="polaroid-caption">
+                <p class="mem-quote" id="quote-4">
+                  "Celebrations are brighter when you are in the picture."
+                </p>
+                <span class="mem-tag editable-note">“Annaya, I promise that every year, I’ll do my best to make sure you tie a Rakhi on my hand. I want to celebrate this beautiful bond with you every single year. ❤️”</span>
+              </div>
+            </div>
+          </div>
+          <!-- Memory 6 -->
+          <div class="polaroid" data-index="5" role="img" aria-label="Memory 6">
+            <div class="polaroid-inner">
+              <div class="polaroid-img-wrap">
+                <img src="images/memory6.jpeg" alt="A cherished memory" loading="lazy" />
+              </div>
+              <div class="polaroid-caption">
+                <p class="mem-quote" id="quote-5">
+                  “At this college, every memory brings a smile to my heart. ❤️”
+                </p>
+                <span class="mem-tag editable-note">“Annaya, never lose your self-confidence. Keep working hard like this, and may you continue to grow, achieve greater things, and reach new heights in life. ❤️”</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Navigation -->
+        <div class="gallery-nav" aria-label="Gallery navigation">
+          <button id="btn-prev" class="gallery-arrow" aria-label="Previous memory" title="Previous">&#8592;</button>
+          <div class="gallery-counter" id="gallery-counter" aria-live="polite">1 / 6</div>
+          <button id="btn-next" class="gallery-arrow" aria-label="Next memory" title="Next">&#8594;</button>
+        </div>
+
+        <!-- Thumbnail strip -->
+        <div class="gallery-thumbs" id="gallery-thumbs" role="tablist" aria-label="Memory thumbnails">
+          <button class="thumb active" data-idx="0" role="tab" aria-selected="true" aria-label="Memory 1"></button>
+          <button class="thumb" data-idx="1" role="tab" aria-selected="false" aria-label="Memory 2"></button>
+          <button class="thumb" data-idx="2" role="tab" aria-selected="false" aria-label="Memory 3"></button>
+          <button class="thumb" data-idx="3" role="tab" aria-selected="false" aria-label="Memory 4"></button>
+          <button class="thumb" data-idx="4" role="tab" aria-selected="false" aria-label="Memory 5"></button>
+          <button class="thumb" data-idx="5" role="tab" aria-selected="false" aria-label="Memory 6"></button>
+        </div>
+      </div>
+
+      <button id="btn-to-letter" class="btn btn-primary btn-next-page" aria-label="Go to next page: Letter">
+        One More Memory <span class="btn-arrow">→</span>
+      </button>
+    </section>
+
+    <!-- ──────────────────────────────
+         PAGE 3: LETTER
+    ────────────────────────────── -->
+    <section id="page-3" class="page page-letter" aria-label="Letter from sister">
+      <canvas id="letter-canvas" aria-hidden="true"></canvas>
+      <div class="page-header">
+        <div class="section-badge">Chapter II</div>
+        <h2 class="page-title golden-glow">A Letter From Your Sister</h2>
+        <p class="page-subtitle">Sealed with love. Written from the heart.</p>
+      </div>
+
+      <div class="envelope-wrap" id="envelope-wrap">
+        <!-- Closed envelope -->
+        <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Click to open the letter" aria-expanded="false">
+          <div class="envelope-flap"></div>
+          <div class="envelope-body">
+            <div class="envelope-seal">❤</div>
+            <div class="envelope-to">To: <em>Khadersha Annaya</em></div>
+            <div class="envelope-hint">Click to open ✦</div>
+          </div>
+        </div>
+
+        <!-- Open letter -->
+        <div class="letter-reveal" id="letter-reveal" aria-live="polite" hidden>
+          <div class="letter-paper">
+            <div class="letter-deco-top">✦ ✦ ✦</div>
+            <div class="letter-text">
+              <p class="letter-salutation">Dear Annaya,</p>
+              <p>Sometimes I may not express everything I feel, but I want you to know how special you are to me.</p>
+              <p>Life gives us many relationships, but having you as my brother is one of my greatest blessings.</p>
+              <p>Thank you for being a part of my life, for all the memories, the laughter, and even our little fights.</p>
+              <p>No matter how old we grow or how far life takes us, you will always be my dearest Annaya.</p>
+              <p>I wish you endless happiness, good health, success and everything your heart dreams of.</p>
+              <p>Always stay happy and keep smiling.</p>
+              <p class="letter-sign">With lots of love,<br /><em>Your Sister ❤️</em></p>
+            </div>
+            <div class="letter-deco-bottom">✦ ✦ ✦</div>
+          </div>
+        </div>
+
+        <button id="btn-open-letter" class="btn btn-secondary" aria-label="Open the letter">
+          Open My Letter 💌
+        </button>
+      </div>
+
+      <button id="btn-to-timeline" class="btn btn-primary btn-next-page hidden-btn" aria-label="Go to next page: Timeline">
+        There's More For You <span class="btn-arrow">→</span>
+      </button>
+    </section>
+
+    <!-- ──────────────────────────────
+         PAGE 4: 27 YEARS TIMELINE
+    ────────────────────────────── -->
+    <section id="page-4" class="page page-timeline" aria-label="27 years timeline">
+      <canvas id="timeline-canvas" aria-hidden="true"></canvas>
+      <div class="page-header">
+        <div class="section-badge">Chapter III</div>
+        <h2 class="page-title golden-glow">27 Years of Memories</h2>
+        <p class="page-subtitle">Every year shaped you into who you are today.</p>
+      </div>
+
+      <div class="number-27-wrap" aria-label="27 years celebration">
+        <div class="number-27" id="number-27">27</div>
+        <div class="number-27-sub">Years of Life, Love & Growth</div>
+      </div>
+
+      <div class="timeline-quotes">
+        <blockquote class="timeline-quote tq-1">
+          <span class="tq-mark">"</span>27 years of growing, learning and becoming someone special.<span class="tq-mark">"</span>
+        </blockquote>
+        <blockquote class="timeline-quote tq-2">
+          <span class="tq-mark">"</span>The best memories are still waiting to be created.<span class="tq-mark">"</span>
+        </blockquote>
+      </div>
+
+      <div class="timeline-wrap" role="list" aria-label="Life timeline">
+        <div class="timeline-item" role="listitem">
+          <div class="tl-year">1999</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content"><div class="tl-title">The Beginning 🌟</div><div class="tl-desc">The world became a better place the day you arrived. A story begins.</div></div>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="tl-year">2004</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content"><div class="tl-title">Little Adventurer 🎒</div><div class="tl-desc">School days, new friends, endless curiosity and that infectious smile.</div></div>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="tl-year">2010</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content"><div class="tl-title">Growing Up 🌱</div><div class="tl-desc">Dreams got bigger, laughter got louder, and memories got sweeter.</div></div>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="tl-year">2017</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content"><div class="tl-title">Finding Your Path 🎓</div><div class="tl-desc">Chasing dreams, embracing challenges, becoming who you were meant to be.</div></div>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="tl-year">2022</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content"><div class="tl-title">New Chapters 🚀</div><div class="tl-desc">Life opened new doors. You walked through them with courage and grace.</div></div>
+        </div>
+        <div class="timeline-item tl-now" role="listitem">
+          <div class="tl-year gold">2026</div>
+          <div class="tl-dot tl-dot-gold"></div>
+          <div class="tl-content"><div class="tl-title golden-shimmer">27 & Shining ✨</div><div class="tl-desc">Another beautiful chapter begins. The best is truly yet to come.</div></div>
+        </div>
+      </div>
+
+      <button id="btn-to-celebration" class="btn btn-primary btn-next-page" aria-label="Go to final celebration page">
+        Ready For The Final Surprise? 🎉
+      </button>
+    </section>
+
+    <!-- ──────────────────────────────
+         PAGE 5: CELEBRATION
+    ────────────────────────────── -->
+    <section id="page-5" class="page page-celebration" aria-label="Birthday celebration">
+      <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+      <div class="balloons-container" id="balloons" aria-hidden="true"></div>
+      <div class="confetti-container" id="confetti-container" aria-hidden="true"></div>
+
+    <div class="celebration-content">
+
+  <div class="cake-wrap" id="cake-wrap" role="img" aria-label="Birthday cake">
+
+    <div class="cake-hint" id="cake-hint">
+      🎂 Happy Birthday Annaya! ❤️
+    </div>
+
+    <img
+      src="images/cake-bg.jpeg"
+      alt="Happy Birthday Annaya Cake"
+      class="birthday-cake-image"
+    />
+
+  </div>
+
+  <h1 class="celebration-title">
+    Happy Birthday, Annaya! ❤️
+  </h1>
+
+</div>
+
+        <h1 class="celebration-title golden-glow" aria-label="Happy 27th Birthday Khadersha Annaya">
+          HAPPY 27<sup>TH</sup> BIRTHDAY,<br />
+          <span class="cel-name golden-shimmer">ANNAYA</span>
+        </h1>
+
+        <div class="cel-date">🗓️ November 3, 2026</div>
+
+        <div class="cel-message">
+          <p>Today is all about you!</p>
+          <p>May this new chapter of your life bring endless happiness, success, good health and beautiful memories.</p>
+          <p>Keep smiling, keep shining and never stop chasing your dreams.</p>
+          <p>You deserve all the happiness in the world.</p>
+          <p><strong>Happy Birthday, Annaya!</strong></p>
+          <p class="cel-sign">With endless love,<br /><em>Your Sister ❤️</em></p>
+        </div>
+
+        <button id="btn-replay" class="btn btn-secondary btn-replay" aria-label="Replay the entire journey">
+          Replay Our Journey ↻
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Audio element -->
+  <audio id="birthday-audio" loop preload="none">
+    <source src="audio/birthday-music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+  <audio id="background-music" loop>
+    <source src="audio/birthday-music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-toggle">🎵 Play Music</button>
+
+<script>
+    const music = document.getElementById("background-music");
+    const button = document.getElementById("music-toggle");
+
+    button.addEventListener("click", () => {
+        if (music.paused) {
+            music.play();
+            button.textContent = "⏸ Pause Music";
+        } else {
+            music.pause();
+            button.textContent = "🎵 Play Music";
+        }
+    });
+</script>
+</body>
+</html>
